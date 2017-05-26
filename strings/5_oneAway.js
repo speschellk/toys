@@ -1,6 +1,7 @@
 /* One Away: There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away. */
 
 
+// Time complexity: O(n^2)
 const checkOneAway = (str, str2) => {
   if (!str2 || Math.abs(str.length - str2.length) > 1) { return false; }
   
