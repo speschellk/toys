@@ -12,6 +12,7 @@ const isPalindrome = (str) => {
   _.each(cache, (val) => {
     if (val % 2 !== 0) { count++; }
   });
+  
   return count > 1 ? false : true;
 };
 
