@@ -1,0 +1,22 @@
+{
+  "name": "toys",
+  "version": "1.0.0",
+  "description": "toy problems from Cracking The Coding Interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speschellk/toys.git"
+  },
+  "author": "Kay Christensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/speschellk/toys/issues"
+  },
+  "homepage": "https://github.com/speschellk/toys#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
