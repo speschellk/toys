@@ -28,11 +28,13 @@
 */
 
 
+// SOLUTION ONE: Using two additional data structures
 const zeroMatrix = (matrix) => {
   if (!matrix.length) { return null; }
   let zeroCols = new Map();
   let zeroRows = new Map();
 
+  // store rows and columns that include zeroes
   for (let row = 0; row < matrix.length; row++) {
     for (let col = 0; col < matrix[0].length; col++) {  
       if (matrix[row][col] === 0) {
@@ -42,6 +44,7 @@ const zeroMatrix = (matrix) => {
     }
   }
 
+  // 'zero out' the rows and columns containing zeroes
   for (let col = 0; col < matrix[0].length; col++) {
     if (zeroCols.get(col)) {
       for (let row = 0; row < matrix.length; row++) {
@@ -55,6 +58,39 @@ const zeroMatrix = (matrix) => {
 
   return matrix;
 };
+
+
+// SOLUTION TWO: Using one additional data structure
+
+// const zeroMatrix = (matrix) => {
+//   if (!matrix.length) { return null; }
+//   let zeroCols = new Map();
+  
+//   for (let row = 0; row < matrix.length; row++) {
+//     let rowHasZeroes = false;
+    
+//     for (let col = 0; col < matrix[0].length; col++) {  
+//       if (matrix[row][col] === 0) {
+//         rowHasZeroes = true;
+//         zeroCols.set(col, true);
+//       }
+//     }
+
+//     if (rowHasZeroes) {
+//       matrix[row] = matrix[row].map((el) => { return 0; });
+//     }
+//   }
+
+//   matrix.forEach((row) => {
+//     for (let col = 0; col < matrix[0].length; col++) {
+//       if (zeroCols.get(col)) {
+//         row[col] = 0;
+//       }
+//     }
+//   });
+
+//   return matrix;
+// };
 
 
 console.log(zeroMatrix([ [1, 0, 1], [2, 2, 2,], [0, 1, 0] ])); // [ [0,0,0], [0,0,0], [0,0,0] ]
