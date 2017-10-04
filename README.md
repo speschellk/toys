@@ -1,1 +1,3 @@
-# My solutions to toy problems from Cracking The Coding Interview
+# Toy Problems
+
+My solutions to toy problems from Cracking The Coding Interview
