@@ -1,8 +1,8 @@
 /*
  Implement an algorithm to delete a node in the middle (i.e., any node but the first and last node, not necessarily the exact middle) of a singly linked list, given only access to that node.
 
-I: the node c from the linked list a->b->c->d->e->f
-O: nothing is returned, but the new linked list looks like a->b->d->e->f
+I: node from a singly linked list
+O: no return, just side effect of removing node from list
 C: given access only to the node that will be removed
 E: no node passed in
 */
@@ -51,6 +51,7 @@ class LinkedList {
   }
 }
 
+// list instance. linstance?
 let list = new LinkedList();
 list.addToTail(1);
 list.addToTail(2);
@@ -58,4 +59,19 @@ list.addToTail(1);
 list.addToTail(3);
 list.addToTail(1);
 list.addToTail(2);
-list.removeHead()
+
+
+// Time complexity: O(1)
+// Space complexity: O(1)
+function deleteMiddleNode(node) {
+  if (!node || !node.next) return null;
+
+  let next = node.next;
+  node.value = next.value;
+  node.next = next.next;
+}
+
+/* Test cases */
+console.log(deleteMiddleNode()); // null
+deleteMiddleNode(list.head.next); // 1, 1, 3, 1, 2
+console.log(list);
