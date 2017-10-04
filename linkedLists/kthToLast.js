@@ -44,12 +44,11 @@ class LinkedList {
     return currentHead;
   }
   contains(target) {
-    if (this.value === target) {
-      return true;
-    }
-    while (this.head.next) {
-      this.head = this.head.next;
-      this.head.contains(target)
+    let node = this.head;
+
+    while (node) {
+      if (node.value === target) return true;
+      node = node.next;
     }
     return false;
   }

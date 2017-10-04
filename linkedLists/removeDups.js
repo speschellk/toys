@@ -30,28 +30,19 @@ class LinkedList {
   }
   removeHead() {
     if (!this.head) return null;
+
     let currentHead = this.head;
     this.head = this.head.next;
     return currentHead;
   }
-  removeNode(prev) {
-    // node represented by this.prev.next is the one to remove
-    // this.prev.next.next is the subsequent node
-    let removed = this.prev.next;
-    this.prev.next = this.prev.next.next;
-    delete this.prev.next;
-  }
   contains(target) {
-    if (this.head.value === target) return true;
+    let node = this.head;
 
-    return !!(this.head.next && this.head.next.contains(target));
-  }
-  traverse(cb) {
-    cb(this.head);
-
-    while (this.head.next) {
-      this.head.next.traverse(cb);
+    while (node) {
+      if (node.value === target) return true;
+      node = node.next;
     }
+    return false;
   }
 }
 
