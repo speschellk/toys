@@ -1,7 +1,16 @@
-const { LinkedList } = require('./classes');
+const { LinkedList, LinkedListWithLength } = require('./classes');
 
 exports.buildList = function (values) {
   const list = new LinkedList();
+
+  for (let val of values) {
+    list.addToTail(val);
+  }
+  return list;
+}
+
+exports.buildListWithLength = function (values) {
+  const list = new LinkedListWithLength();
 
   for (let val of values) {
     list.addToTail(val);
