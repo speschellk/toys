@@ -21,6 +21,45 @@ class LinkedList {
       this.tail.next = node;
     }
     this.tail = node;
+  }
+
+  removeHead() {
+    if (!this.head) return null;
+
+    let currentHead = this.head;
+    this.head = this.head.next;
+
+    return currentHead;
+  }
+
+  contains(target) {
+    let node = this.head;
+
+    while (node) {
+      if (node.value === target) return true;
+      node = node.next;
+    }
+    return false;
+  }
+}
+
+class LinkedListWithLength {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
+  addToTail(value) {
+    let node = new Node(value);
+
+    if (!this.head) {
+      this.head = node;
+    }
+    if (this.tail) {
+      this.tail.next = node;
+    }
+    this.tail = node;
     this.length++;
   }
 
@@ -45,4 +84,4 @@ class LinkedList {
   }
 }
 
-module.exports = { Node, LinkedList };
+module.exports = { Node, LinkedList, LinkedListWithLength };
