@@ -15,7 +15,6 @@ exports.removeDuplicates = function(list) {
     } else {
       let nodeToDelete = node;
       previous.next = node = node.next;
-      delete nodeToDelete;
     }
   } while(node);
 
