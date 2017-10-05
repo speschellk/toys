@@ -1,10 +1,43 @@
 const { uniqueList, dupList, spreadList, singleNodeList, emptyList } = require('../src/config/linkedLists/lists');
+const { removeDuplicates } = require('../src/problems/linkedLists/removeDuplicates');
 const { deleteMiddleNode } = require('../src/problems/linkedLists/deleteMiddleNode');
 const { kthToLast, kToLast, kthToLastMap } = require('../src/problems/linkedLists/kthToLast');
 const { partition } = require('../src/problems/linkedLists/partition');
-const { removeDuplicates } = require('../src/problems/linkedLists/removeDuplicates');
 
 
+describe('Linked list tests', () => {
+
+  describe('Remove duplicates', () => {
+    let dupsRemoved = removeDuplicates(dupList);
+
+    test('returns null if empty list or no list passed in', () => {
+      expect(removeDuplicates()).toBeNull();
+    });
+
+    test('list contains no duplicate node values', () => {
+      expect(dupsRemoved).toMatchObject(uniqueList);
+    });
+
+    test('list retains all unique node values', () => {
+      expect(dupsRemoved).toMatchObject(uniqueList);
+    });
+
+    test('list still has head and tail properties', () => {
+      expect(dupsRemoved.head).toBeTruthy();
+      expect(dupsRemoved.head.value).toBe(1);
+      expect(dupsRemoved.tail).toBeTruthy();
+      expect(dupsRemoved.tail.value).toBe(5);
+    });
+  });
+
+  describe('kth to lasts', () => {
+    test('returns null if empty list or no list passed in', () => {
+      expect(kthToLast()).toBeNull();
+      expect(kToLast()).toBeNull();
+      expect(kthToLastMap()).toBeNull();
+    });
+  });
+});
 // deleteMiddleNode
 /* Test cases */
 console.log(deleteMiddleNode(emptyList)); // null
@@ -36,6 +69,3 @@ console.log(kthToLastMap(list2, 1)); // node.value = 1, node.next = null
 
 
 //partition
-
-
-//removeDuplicates

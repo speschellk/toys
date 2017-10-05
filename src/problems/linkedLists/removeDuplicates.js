@@ -1,8 +1,8 @@
-const { dupList } = require('./lists');
-
-console.log(removeDuplicates(dupList)); // list should have node values 1, 2, 3, head and tail
-
+// Time complexity: O(n)
+// Space complexity: O(1) extra space
 exports.removeDuplicates = function(list) {
+  if (!list) return null;
+
   let nodeSet = new Set();
   let previous;
   let node = list.head;
