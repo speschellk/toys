@@ -31,7 +31,7 @@ exports.kToLast = function(list, k) {
   }
 
   list.length = length;
-  return kthToLast(list, k);
+  return exports.kthToLast(list, k);
 }
 
 
