@@ -1,9 +1,9 @@
-const { buildList } = require('./methods');
+const { buildList, buildListWithLength } = require('./methods');
 
 
 let uniques = [1, 2, 3, 4, 5, 6];
 exports.uniqueList = buildList(uniques); // SLL with unique node values
-
+exports.uniqueListWithLength = buildListWithLength(uniques);
 
 let duplicates = [1, 1, 2, 3, 4, 2, 5, 3, 6, 5];
 exports.dupList = buildList(duplicates); // SLL with duplicate node values
