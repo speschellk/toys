@@ -5,7 +5,7 @@ let uniques = [1, 2, 3, 4, 5, 6];
 exports.uniqueList = buildList(uniques); // SLL with unique node values
 
 
-let duplicates = [1, 2, 3, 4, 2, 5, 3, 6, 5];
+let duplicates = [1, 1, 2, 3, 4, 2, 5, 3, 6, 5];
 exports.dupList = buildList(duplicates); // SLL with duplicate node values
 
 
@@ -18,5 +18,3 @@ exports.singleNodeList = buildList(single); // SLL with a single node
 
 
 exports.emptyList = buildList([]); // SLL with no nodes
-
-console.log(exports.dupList)
