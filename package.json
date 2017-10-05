@@ -25,6 +25,7 @@
   },
   "jest": {
     "bail": true,
-    "verbose": true
+    "verbose": true,
+    "roots": ["spec/"]
   }
 }
