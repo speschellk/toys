@@ -1,10 +1,11 @@
 {
   "name": "toys",
   "version": "1.0.0",
-  "description": "toy problems from Cracking The Coding Interview",
+  "description": "My solutions to toy problems from Cracking The Coding Interview",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "debug": "node --inspect-brk=5858 ",
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,12 @@
   "homepage": "https://github.com/speschellk/toys#readme",
   "dependencies": {
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "jest": {
+    "bail": true,
+    "verbose": true
   }
 }
