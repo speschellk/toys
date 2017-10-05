@@ -36,3 +36,14 @@ exports.checkForDups = function(list) {
   }
   return hasDups;
 }
+
+exports.countNodes = function(list) {
+  let count = 0;
+  let copy = Object.assign({}, list);
+
+  while (copy.head) {
+    count++;
+    copy.head = copy.head.next;
+  }
+  return count;
+}
