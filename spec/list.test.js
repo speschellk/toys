@@ -6,7 +6,10 @@ const {
   singleNodeList,
   emptyList
 } = require('../src/config/linkedLists/lists');
-const { checkForDups } = require('../src/config/linkedLists/methods');
+const {
+  checkForDups,
+  countNodes
+} = require('../src/config/linkedLists/methods');
 const { removeDuplicates } = require('../src/problems/linkedLists/removeDuplicates');
 const { deleteMiddleNode } = require('../src/problems/linkedLists/deleteMiddleNode');
 const {
@@ -96,23 +99,20 @@ describe('Linked list tests', () => {
       expect(deleteMiddleNode(emptyList)).toBeNull();
     });
 
-    test('deletes a node passed into it', () => {
-      let list = dupList;
-      let nodeToDelete = list.head.next;
+    test('removes a node from the list', () => {
+      let copy = Object.assign({}, spreadList);
+      let fullCount = countNodes(copy);
+      let deletedNode = deleteMiddleNode(copy.head.next);
+      let newCount = countNodes(copy);
 
-      deleteMiddleNode(nodeToDelete);
-      let secondNode = list.head.next;
-
-      expect(secondNode).not.toMatchObject(nodeToDelete);
+      expect(newCount).toBe(fullCount - 1);
     });
 
-    test('previous node\'s .next points to the node after deleted node', () => {
-      deleteMiddleNode(dupList.head.next);
-      let deleted = dupList;
+    test('removes the node passed into it', () => {
+      let nodeToRemove = Object.assign({}, uniqueList.head.next);
+      deleteMiddleNode(uniqueList.head.next);
 
-      expect(deleted.head.next.value).not.toBeNull();
-      expect(deleted.head.next.value).not.toBeUndefined();
-      expect(deleted.head.next.value).toBe(2);
+      expect(uniqueList.head.next).not.toMatchObject(nodeToRemove);
     });
   });
 
