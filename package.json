@@ -4,7 +4,7 @@
   "description": "My solutions to toy problems from Cracking The Coding Interview",
   "main": "index.js",
   "scripts": {
-    "debug": "node --inspect-brk=5858 ",
+    "debug": "node --inspect-brk=5858 spec/list.test.js",
     "test": "jest --watch"
   },
   "repository": {
@@ -21,11 +21,13 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "jest-environment-node-debug": "^2.0.0"
   },
   "jest": {
     "bail": true,
-    "verbose": true,
-    "roots": ["spec/"]
+    "roots": [
+      "spec/"
+    ]
   }
 }

@@ -21,9 +21,10 @@ const { partition } = require('../src/problems/linkedLists/partition');
 
 
 describe('Linked list tests', () => {
-  let deduped = removeDuplicates(dupList);
 
   describe('Remove duplicates', () => {
+    let deduped = removeDuplicates(dupList);
+
     test('returns null if no list passed in', () => {
       expect(removeDuplicates()).toBeNull();
     });
@@ -100,10 +101,9 @@ describe('Linked list tests', () => {
     });
 
     test('removes a node from the list', () => {
-      let copy = Object.assign({}, spreadList);
-      let fullCount = countNodes(copy);
-      let deletedNode = deleteMiddleNode(copy.head.next);
-      let newCount = countNodes(copy);
+      let fullCount = countNodes(uniqueList);
+      let deletedNode = deleteMiddleNode(uniqueList.head.next);
+      let newCount = countNodes(uniqueList);
 
       expect(newCount).toBe(fullCount - 1);
     });
@@ -120,6 +120,15 @@ describe('Linked list tests', () => {
     test('returns null if empty list or no list passed in', () => {
       expect(partition()).toBeNull();
       expect(partition(emptyList)).toBeNull();
+    });
+
+    test('moves values equal to or larger than partition value to the right of the value', () => {
+      // [5, 87, 54, 20, 1051, 2, 88, 205];
+      expect(partition(spreadList, 70)).not.toMatchObject(spreadList);
+    });
+
+    test('moves values smaller than partition value to the left of the value', () => {
+
     });
   });
 });
