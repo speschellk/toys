@@ -88,7 +88,8 @@ Number.prototype.toEnglish = function () {
   return words.join(' ').replace(/(- )/g, '-');
 };
 
-console.log((7).toEnglish()); // > "seven"
-console.log((87).toEnglish()); // > "eighty-seven"
-console.log((577).toEnglish()); // > "five hundred seventy-seven"
-console.log((78193512).toEnglish()); // > "seventy-eight million one hundred ninety-three thousand five hundred twelve"
+/* Test cases */
+console.log((7).toEnglish());        // "seven"
+console.log((87).toEnglish());       // "eighty-seven"
+console.log((577).toEnglish());      // "five hundred seventy-seven"
+console.log((78193512).toEnglish()); // "seventy-eight million one hundred ninety-three thousand five hundred twelve"
