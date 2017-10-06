@@ -23,37 +23,36 @@ O: 3 -> 5 -> 5 -> 2 -> 1 -> | 8 -> 10       // 8 and 10 are in the right partiti
 */
 
 exports.partition = function(list, x) {
+  if (!list) return null;
+
   let node = list.head;
-  let rightHead;
-  let rightTail;
-  let leftHead;
-  let leftTail;
+  let rightHead, rightTail, leftHead, leftTail;
 
   while (node) {
-    console.log('node is', node)
     if (node.value < x) {
+      let newTail = Object.assign({}, node);
       if (!leftHead) {
-        leftHead = leftTail = node;
+        leftHead = newTail;
       }
       if (leftTail) {
-        leftTail.next = leftTail;
+        leftTail.next = newTail;
       }
-      leftTail = node;
-    } else {
+      leftTail = newTail;
+    } else { // node.value >= x
+      let newTail = Object.assign({}, node);
       if (!rightHead) {
-        rightHead = rightTail = node;
+        rightHead = newTail;
       }
       if (rightTail) {
-        rightTail.next = node;
+        rightTail.next = newTail;
       }
-      rightTail.next = rightTail;
+      rightTail = newTail;
     }
     node = node.next;
   }
   leftTail.next = rightHead;
-  return leftTail;
+  return leftHead;
 }
 
-// I: 3 -> 5 -> 8 -> 5 -> 10 -> 2 -> 1 [x = 7]
-// O: 3 -> 5 -> 5 -> 2 -> 1 -> | 8 -> 10
-console.log(partition(list, 7)); // 3 -> 5 -> 5 -> 2 -> 1 -> | 8 -> 10
+const { spreadList } = require('../../config/linkedLists/lists');
+console.log(exports.partition(spreadList, 70));
