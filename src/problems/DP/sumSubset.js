@@ -9,19 +9,22 @@ function sumSubset(set, sum) {
 
   for (let row = 1; row < set.length; row++) {
     newVal = set[row];
-
     for (let col = 0; col <= sum; col++) {
-      if (newVal > col) {
-        m[row][col] = m[row - 1][col];
-      } else if (col === newVal) {
-        m[row][col] = true;
-      } else {
-        let diff = col - newVal;
-        m[row][col] = m[row - 1][col] || m[row - 1][diff];
-      }
+      determineCell(m, row, col, newVal);
     }
   }
   return m[set.length - 1][sum];
+}
+
+function determineCell(m, row, col, val) {
+  if (val > col) {
+    m[row][col] = m[row - 1][col];
+  } else if (col === val) {
+    m[row][col] = true;
+  } else {
+    let diff = col - val;
+    m[row][col] = m[row - 1][col] || m[row - 1][diff];
+  }
 }
 
 function makeMemoMatrix(set, sum) {
